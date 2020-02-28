@@ -25,7 +25,13 @@ def make_app():
 
         # Is my destination address formatted correctky?
         model = joblib.load('flask_test/rfc.joblib')
-        command = model.predict(df)
+        
+        commands = model.predict(df)
+        commands_df = pd.DataFrame({'index': commands.index, 'predictions':commands})
+        commands_df['predictions'] = commands_df['predictions'].astype('int64')
+        commands_sum += commands['predictions']
+        commands_avg = (sommands_sum / commands_df.shape[1])
+        command = commands_avg.astype('int64')
 
         return command
 
