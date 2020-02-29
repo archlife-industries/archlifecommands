@@ -7,10 +7,8 @@ verify_ssl = true
 
 [packages]
 flask = "*"
-json = "*"
-cors = "*"
+numpy = "*"
 flask-cors = "*"
-pandas = "*"
 
 [requires]
 python_version = "3.7"
