@@ -1,4 +1,4 @@
-import flask
+from flask import Flask
 from flask_cors import CORS
 #import pandas as pd
 #from sklearn.externals import joblib
@@ -7,7 +7,6 @@ from flask_cors import CORS
 #import argparse
 #import time
 import numpy as np
-import Gunicorn
 #import brainflow
 #from brainflow.board_shim import BoardShim, BrainFlowInputParams
 #from brainflow.data_filter import DataFilter, FilterTypes, AggOperations
@@ -16,8 +15,10 @@ import Gunicorn
 def make_app():
     app = Flask(__name__)
     cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
-    @app.route('/id/<int:post_id>')
-    print('server response 200')
+    @app.route('/')
+    def print_response():
+        return "server response 200"
+    return app
     #def home(post_id)
         #ms = post_id
         # Lines 23-58 copied from https://brainflow.readthedocs.io/en/stable/Examples.html
@@ -77,12 +78,6 @@ def make_app():
         #command = commands_avg.astype('int64')
 
         #return command
-
-    return app
-
-
-if __name__ == "__main__":
-     app.run(debug=True, port = 8080)
 
 
 
