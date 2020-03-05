@@ -12,6 +12,8 @@ flask-cors = "*"
 gunicorn = "*"
 sklearn = "*"
 pandas = "*"
+argparse = "*"
+brainflow = "*"
 
 [requires]
 python_version = "3.7"
