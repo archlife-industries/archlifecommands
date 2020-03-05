@@ -10,6 +10,8 @@ flask = "*"
 numpy = "*"
 flask-cors = "*"
 gunicorn = "*"
+sklearn = "*"
+pandas = "*"
 
 [requires]
 python_version = "3.7"
