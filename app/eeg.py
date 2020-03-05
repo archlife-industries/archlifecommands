@@ -63,6 +63,7 @@ def make_app():
 
         # CONNECT THE DATA TO THE MODEL FOR PREDICTIONS
 
+        # Test Sample Data
         #data = 'https://archlife.org/wp-content/uploads/2020/03/OpenBCI-RAW-right0.txt'
 
         column_names = ['index', 'channel1','channel2', 'channel3', 'channel4', 'accel1', 'accel2', 'accel3', 'timestamp', 'aux']
@@ -73,7 +74,6 @@ def make_app():
         df = df.drop(['level_0', 'index', 'timestamp'], axis=1)
         df = df.dropna(axis=0)
 
-        # Is my destination address formatted correctky?
         model = joblib.load('flask_test/rfc.joblib')
 
         commands_proba = model.predict_proba(df)
